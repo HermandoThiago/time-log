@@ -1,4 +1,4 @@
-import { Newlog, Navbar, Calendar } from "@/components";
+import { Newlog, Navbar, Calendar, Logs } from "@/components";
 import React from "react";
 
 export default function page() {
@@ -7,6 +7,7 @@ export default function page() {
       <Navbar />
       <Newlog />
       <Calendar />
+      <Logs />
     </div>
   );
 }

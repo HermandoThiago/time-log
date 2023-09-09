@@ -4,7 +4,7 @@ import { IoTimer } from "react-icons/io5";
 
 export default function Navbar() {
   return (
-    <div className="flex items-center justify-between p-5">
+    <div className="flex items-center justify-between">
       <div className="flex items-center">
         <IoTimer className="text-xl" />
         <h1>Time</h1>

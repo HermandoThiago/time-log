@@ -1,5 +1,4 @@
-import { Newlog } from "@/components";
-import Navbar from "@/components/Navbar";
+import { Newlog, Navbar, Calendar } from "@/components";
 import React from "react";
 
 export default function page() {
@@ -7,6 +6,7 @@ export default function page() {
     <div className="p-5 space-y-10">
       <Navbar />
       <Newlog />
+      <Calendar />
     </div>
   );
 }

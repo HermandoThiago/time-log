@@ -7,6 +7,8 @@ import { redirect } from "next/navigation";
 import InitialLog from "@/components/state/InitLog";
 import { Log } from "@/store";
 
+export const dynamic = "force-dynamic";
+
 export default async function page() {
   const supabase = createServerComponentClient({ cookies });
 

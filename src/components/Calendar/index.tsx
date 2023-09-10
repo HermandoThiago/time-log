@@ -44,19 +44,25 @@ export function Calendar() {
 
   return (
     <div className="border border-dashed flex flex-wrap gap-2 p-10 justify-center rounded-md">
-      {getDayInMonth().map((value, index) => (
-        <HoverCard key={index}>
-          <HoverCardTrigger>
-            <div
-              className={cn(
-                "h-5 w-5 bg-gray-100 rounded-md cursor-pointer",
-                getColor(hour || 0)
-              )}
-            ></div>
-          </HoverCardTrigger>
-          <HoverCardContent>0 hours on {value}</HoverCardContent>
-        </HoverCard>
-      ))}
+      {getDayInMonth().map((value, index) => {
+        const log = logs[value];
+
+        return (
+          <HoverCard key={index}>
+            <HoverCardTrigger>
+              <div
+                className={cn(
+                  "h-5 w-5 bg-gray-100 rounded-md cursor-pointer",
+                  getColor(log?.hour || 0)
+                )}
+              ></div>
+            </HoverCardTrigger>
+            <HoverCardContent>
+              {log?.hour || 0} hours on {value}
+            </HoverCardContent>
+          </HoverCard>
+        );
+      })}
     </div>
   );
 }

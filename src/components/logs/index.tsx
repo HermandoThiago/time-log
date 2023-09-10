@@ -1,3 +1,4 @@
+"use client";
 import {
   Table,
   TableBody,
@@ -7,8 +8,12 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
+import { cn } from "@/lib/utils";
+import { useLogStore } from "@/store";
 
 export function Logs() {
+  const logs = useLogStore((state) => state.logs);
+
   return (
     <div>
       <Table>
@@ -21,11 +26,20 @@ export function Logs() {
           </TableRow>
         </TableHeader>
         <TableBody>
-          <TableRow>
-            <TableCell>{new Date().toDateString()}</TableCell>
-            <TableCell>10</TableCell>
-            <TableCell>This is a place holder.</TableCell>
-          </TableRow>
+          {Object.keys(logs).map((key) => {
+            const log = logs[key];
+
+            return (
+              <TableRow
+                key={key}
+                className={cn(log.hour <= 5 ? "bg-red-100" : "")}
+              >
+                <TableCell>{log.date.toDateString()}</TableCell>
+                <TableCell>{log.hour}</TableCell>
+                <TableCell>{log.note}</TableCell>
+              </TableRow>
+            );
+          })}
         </TableBody>
       </Table>
     </div>

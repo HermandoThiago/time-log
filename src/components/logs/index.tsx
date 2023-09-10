@@ -28,13 +28,14 @@ export function Logs() {
         <TableBody>
           {Object.keys(logs).map((key) => {
             const log = logs[key];
+            const date = log.date as Date;
 
             return (
               <TableRow
                 key={key}
                 className={cn(log.hour <= 5 ? "bg-red-100" : "")}
               >
-                <TableCell>{log.date.toDateString()}</TableCell>
+                <TableCell>{date.toDateString()}</TableCell>
                 <TableCell>{log.hour}</TableCell>
                 <TableCell>{log.note}</TableCell>
               </TableRow>

@@ -25,7 +25,7 @@ export function Navbar() {
         <h1>Time</h1>
       </div>
 
-      {!isAuthPage && <Button onClick={handleLogout}>Logout</Button>}
+      {isAuthPage && <Button onClick={handleLogout}>Logout</Button>}
     </div>
   );
 }
